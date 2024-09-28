@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-bar-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            margin-bottom: 20px; /* Space between the input bar and button container */
+        }
+        .input-bar-container input[type="text"] {
+            flex: 2;
+            padding: 15px 20px;
+            border: none;
+            font-size: 1.2em;
+            outline: none;
+            border-radius: 50px 0 0 50px;
+            margin-right: -1px;
+        }
+        .input-bar-container input[type="text"]::placeholder {
+            color: #aaa;
+        }
+        .input-bar-container select {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #fff;
+            color: #000;
+            outline: none;
+            cursor: pointer;
+            border-radius: 0 50px 50px 0;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            width: 100%;
+        }
+        .buttons-container button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            margin: 0 10px;
+            cursor: pointer;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .buttons-container button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Input Bar Container -->
+        <div class="input-bar-container">
+            <input type="text" id="userInput" name="userInput" placeholder="Search..." required>
+            <select id="languageSelect" name="languageSelect">
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+            </select>
+        </div>
+        <!-- Buttons Container -->
+        <div class="buttons-container">
+            <button type="button" id="generateBtn">Generate</button>
+            <button type="button" id="optimizeBtn">Optimize</button>
+            <button type="button" id="docsBtn">Docs</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            submitForm('generate');
+        });
+
+        document.getElementById('optimizeBtn').addEventListener('click', function() {
+            submitForm('optimize');
+        });
+
+        document.getElementById('docsBtn').addEventListener('click', function() {
+            submitForm('docs');
+        });
+
+        function submitForm(action) {
+            const userInput = document.getElementById('userInput').value;
+            const selectedLanguage = document.getElementById('languageSelect').value;
+
+            if (!userInput) {
+                alert('Please enter a query.');
+                return;
+            }
+
+            const apiUrl = `https://your-api-endpoint.com/${action}?query=${encodeURIComponent(userInput)}&language=${selectedLanguage}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('API Response:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+</html>
