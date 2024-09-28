@@ -55,12 +55,22 @@ Docs : Used to generate documentation about the code
 --- 
 
 ### Features
-[Highlight the key features of your project.]
+Main Concept
+C / C++ Generator | Optimiser | Documentation Maker
+
+Feature 1:
+Generates C / C ++ optimised Code & it's documentation.
+
+Feature 2:
+Optimise Code given by the user.
+
+Feature 3:
+Documentation from given code. 
 
 --- 
 
 ### Architecture
-[Provide an explanation of your system architecture.]
+Refer to Diagram Flow.pdf
 
 --- 
 
