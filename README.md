@@ -26,21 +26,31 @@
 ### Technologies Used
 [List all the technologies, programming languages, frameworks, libraries, and tools used in the project. Include any external APIs or datasets.]
 
-- Python 3.7
-- PyTorch
-- TensorFlow
-- Figma
-- React
+- Hostinger
+- Html
+- Java Script
+- CSS 
+- API
 
 ---
 
 ### Installation and Setup
 [Describe how to use install and setup your project. ]
+1. Setup your website Page 
+2. Add a code block or a custom code section
+3. Paste request.html
+4. Modify the line with the API
 
 --- 
 
 ### Usage
 [Describe how to use your application. Include example commands, expected inputs, and outputs.]
+
+The user can choose between C & C++.
+
+Generate : Used to generate code in the choosen language
+Optimize : Used to optimise current code implementation
+Docs : Used to generate documentation about the code 
 
 --- 
 
